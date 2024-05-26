@@ -1,0 +1,58 @@
+
+PostgreSQLのCSV出力(Export)方法
+https://qiita.com/cyborg__ninja/items/99efcb5b62a4cef2f156
+
+PostgreSQL データベースを一発で丸ごとコピー
+https://laox.com/ja/9835
+
+【PostgreSQL】テーブル・DBを閲覧・コピーするときに知っていると便利なテクニック
+https://tech-blog.rakus.co.jp/entry/20200818/postgresql
+
+PostgreSQL ループ文のサンプル(LOOP,WHILE)
+https://itsakura.com/postgresql-for
+
+【PostgreSQL】SQL（SELECT文）の結果をループする方法
+https://postgresweb.com/post-5331
+
+CREATE DATABASE newdb TEMPLATE foo;
+
+CREATE TABLE shohincopy_new (LIKE shohincopy INCLUDING ALL);
+INSERT INTO shohincopy_new SELECT * FROM shohincopy;
+
+SELECT	*
+FROM	shohincopy
+EXCEPT
+SELECT	*
+FROM	shohincopy_new;
+
+SELECT	*
+FROM	shohincopy_new
+EXCEPT
+SELECT	*
+FROM	shohincopy;
+
+(
+  SELECT 'shohincopy_new' AS _table_name, * FROM shohincopy_new
+  EXCEPT ALL SELECT 'shohincopy_new' AS table_name, * FROM shohincopy
+) UNION ALL (
+  SELECT 'shohincopy' AS _table_name, * FROM shohincopy
+  EXCEPT ALL SELECT 'shohincopy' AS table_name, * FROM shohincopy_new
+) ORDER BY shohin_id, _table_name
+
+
+
+
+
+
+
+
+createdb -T shop shop_copy
+psql pg_dump -Ft shop | pg_restore -d shop_copy2
+
+COPY shop TO 'C:\git\sql\test.csv' WITH CSV DELIMITER ',';
+
+COPY shohincopy TO 'C:\git\sql\test3.csv' DELIMITER ',' CSV ENCODING 'SJIS';
+copy public.shohincopy (shohin_id, shohin_mei, shohin_bunrui, hanbai_tanka, shiire_tanka, torokubi) TO 'C:/git/sql/test2.csv' DELIMITER ',' CSV ENCODING 'SJIS' QUOTE '\"' ESCAPE '''';
+
+
+
