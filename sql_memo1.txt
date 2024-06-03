@@ -180,6 +180,36 @@ INSERT INTO films (film_id, title, date_prod) VALUES ('0004', 'f4', '2004-01-01'
 
 SELECT * INTO films_recent FROM films WHERE date_prod >= '2002-01-01';
 
+ローカルのサーバーへのリストア
+https://ganges.pro/customer/help/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%B8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%A2/
+
+・『入門向け』PostgreSQLでシンプルなプロシージャを作成する
+https://rubytomato.hateblo.jp/entry/2020/07/17/162208
+
+・PostgreSQLでストアドプロシージャを使用する
+https://www.fujitsu.com/jp/products/software/resources/feature-stories/postgres/article-index/stored-procedure/
+
+・PostgreSQLで関数を作って、使う[PL/pgSQL入門]
+https://qiita.com/SRsawaguchi/items/411801e254ee66f511f1
+
+【PL/pgSQL入門】PL/pgSQLを勉強したのでまとめてみた
+https://qiita.com/ebichan_88/items/1effb09fbc458276ea51
+
+[Redshift][PostgreSQL] WITH句を使ってSQLをシンプルに。
+https://dev.classmethod.jp/articles/redshift-postgresql-with/
+
+Postgresqlで型を調べたい
+https://qiita.com/rhi222/items/6f4156f1e729d31c16a1
+
+PostgreSQL ループ文のサンプル(LOOP,WHILE)
+https://itsakura.com/postgresql-for
+
+【PostgreSQL】SQL（SELECT文）の結果をループする方法
+https://postgresweb.com/post-5331
+
+SQLのループ制御 LOOP、FOR、WHILEを使ったサンプルコード
+https://style.potepan.com/articles/25328.html
+
 
 CREATE OR REPLACE PROCEDURE loop_test1()
 AS $$
