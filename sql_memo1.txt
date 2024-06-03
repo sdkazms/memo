@@ -234,3 +234,18 @@ $$
 LANGUAGE plpgsql;
 
 CALL loop_test1();
+
+
+CREATE OR REPLACE FUNCTION years_ago(i_arg INTEGER)
+RETURNS INTEGER
+AS $$
+  DECLARE
+    current_year INTEGER := extract(year from current_date)::INTEGER;
+  BEGIN
+    RETURN current_year - i_arg;
+  END;
+$$
+LANGUAGE plpgsql;
+
+SELECT years_ago(10);
+
