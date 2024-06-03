@@ -179,3 +179,28 @@ INSERT INTO films (film_id, title, date_prod) VALUES ('0003', 'f3', '2003-01-01'
 INSERT INTO films (film_id, title, date_prod) VALUES ('0004', 'f4', '2004-01-01');
 
 SELECT * INTO films_recent FROM films WHERE date_prod >= '2002-01-01';
+
+
+CREATE OR REPLACE PROCEDURE loop_test1()
+AS $$
+DECLARE
+    --1.レコード型で変数宣言
+    table_rec record;
+BEGIN
+    --2.for文（select結果をtable_recに格納してループする）
+    FOR table_rec IN
+        --select文の最後の;は不要
+        select * from films_recent
+    LOOP
+        --ここにループ中の処理を書く
+        --動作確認用：raise infoで変数の中身を表示する
+        --copy shohincopy TO (SELECT 'a' || 'b') DELIMITER ',' CSV ENCODING 'SJIS';
+        raise info '%', table_rec.film_id;
+        raise info '%', table_rec.title;
+        raise info '%', table_rec.date_prod;
+    END LOOP;
+END;
+$$
+LANGUAGE plpgsql;
+
+CALL loop_test1();
