@@ -249,3 +249,29 @@ LANGUAGE plpgsql;
 
 SELECT years_ago(10);
 
+
+
+
+
+int numberOfFrames = 0;
+int currentFrame = 0;
+
+private void pictureBox1_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+{
+    if (currentFrame == numberOfFrames - 1)
+    {
+        this.pictureBox1.Enabled = false;
+    }
+    currentFrame++;
+}
+
+
+this.DoubleBuffered = true;
+
+// https://stackoverflow.com/questions/53634678/how-to-stop-picturebox-gif-animation-after-the-first-loop-c
+//pictureBox1.Image = Image.FromFile(@"C:\git\TSK\form_gif\GifControlTest\7Ulf.gif");
+pictureBox1.Image = Image.FromFile(@"C:\git\TSK\form_gif\GifControlTest\7Ulf_optimize.gif");
+pictureBox1.Paint += new PaintEventHandler(this.pictureBox1_Paint);
+
+FrameDimension dimension = new FrameDimension(this.pictureBox1.Image.FrameDimensionsList[0]);
+numberOfFrames = this.pictureBox1.Image.GetFrameCount(dimension);
