@@ -275,3 +275,8 @@ pictureBox1.Paint += new PaintEventHandler(this.pictureBox1_Paint);
 
 FrameDimension dimension = new FrameDimension(this.pictureBox1.Image.FrameDimensionsList[0]);
 numberOfFrames = this.pictureBox1.Image.GetFrameCount(dimension);
+
+https://www.perplexity.ai
+https://www.create.xyz
+https://claude.ai/
+https://gemini.google.com
