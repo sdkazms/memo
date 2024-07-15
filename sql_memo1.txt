@@ -43,6 +43,11 @@ FROM	shohincopy;
   EXCEPT ALL SELECT 'shohincopy' AS table_name, * FROM shohincopy_new
 ) ORDER BY shohin_id, _table_name
 
+VScodeのPostgreSQL拡張が便利
+https://od10z.wordpress.com/2019/12/17/vscode-extensions-for-postgresql/
+
+【Cursor】AI搭載の最強コードエディタ！日本語の使い方や料金体系、できることを解説
+https://weel.co.jp/media/innovator/cursor/#index_id2
 
 
 
