@@ -186,6 +186,8 @@ INSERT INTO films (film_id, title, date_prod) VALUES ('0004', 'f4', '2004-01-01'
 SELECT * INTO films_recent FROM films WHERE date_prod >= '2002-01-01';
 
 
+
+
 ・DBのリストア方法
 プレーンテキスト形式（.sql）のバックアップファイルの場合：
 createdb -U username new_database_name
@@ -197,11 +199,20 @@ pg_restore -U username -d new_database_name /path/to/your/backup_file.dump
 
 ・DBのバックアップ作成方法
 プレーンテキスト形式（SQL）でバックアップを作成：
-pg_dump -U username -d database_name > /path/to/your/backup_file.sql
+pg_dump -U username database_name > /path/to/your/backup_file.sql
 
 カスタム形式（-Fc）でバックアップを作成：
-pg_dump -U username -Fc -d database_name > /path/to/your/backup_file.dump
+pg_dump -U username -Fc database_name > /path/to/your/backup_file.dump
 
+--(例)
+cd "C:\Program Files (x86)\PostgreSQL\9.2\bin"
+dropdb -U postgres database_name
+createdb -U postgres database_name
+pg_restore -U postgres -d database_name C:/XXXX/XXXX.backup
+
+pg_dump -U postgres -Fc database_name > C:/XXXX/XXXX.backup
+pg_dump -U postgres -Fc -h localhost -p 5432 database_name > C:/XXXX/XXXX.dump
+--
 
 
 ローカルのサーバーへのリストア
