@@ -185,6 +185,25 @@ INSERT INTO films (film_id, title, date_prod) VALUES ('0004', 'f4', '2004-01-01'
 
 SELECT * INTO films_recent FROM films WHERE date_prod >= '2002-01-01';
 
+
+・DBのリストア方法
+プレーンテキスト形式（.sql）のバックアップファイルの場合：
+createdb -U username new_database_name
+psql -U username -d database_name -f /path/to/your/backup_file.sql
+
+カスタム形式（-Fc）のバックアップファイル（.dump）の場合：
+createdb -U username new_database_name
+pg_restore -U username -d new_database_name /path/to/your/backup_file.dump
+
+・DBのバックアップ作成方法
+プレーンテキスト形式（SQL）でバックアップを作成：
+pg_dump -U username -d database_name > /path/to/your/backup_file.sql
+
+カスタム形式（-Fc）でバックアップを作成：
+pg_dump -U username -Fc -d database_name > /path/to/your/backup_file.dump
+
+
+
 ローカルのサーバーへのリストア
 https://ganges.pro/customer/help/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AE%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%B8%E3%81%AE%E3%83%AA%E3%82%B9%E3%83%88%E3%82%A2/
 
