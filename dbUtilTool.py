@@ -73,7 +73,7 @@ class PostgreSQLManager:
                 database="postgres"
             )
             cur = conn.cursor()
-            cur.execute("SELECT datname FROM pg_database WHERE datistemplate = false;")
+            cur.execute("SELECT datname FROM pg_database WHERE datistemplate = false ORDER BY LOWER(datname) ASC;")
             databases = [row[0] for row in cur.fetchall()]
             self.db_combo['values'] = databases
             if databases:
@@ -98,10 +98,10 @@ class PostgreSQLManager:
             )
             conn.autocommit = True
             cur = conn.cursor()
-            cur.execute(f"CREATE DATABASE {new_db_name};")
+            cur.execute(f'CREATE DATABASE "{new_db_name}";')
             cur.close()
             conn.close()
-            messagebox.showinfo("Success", f"Database {new_db_name} created successfully")
+            messagebox.showinfo("Success", f'Database "{new_db_name}" created successfully')
             self.refresh_databases()
         except Exception as e:
             messagebox.showerror("Error", str(e))
@@ -122,10 +122,10 @@ class PostgreSQLManager:
             )
             conn.autocommit = True
             cur = conn.cursor()
-            cur.execute(f"ALTER DATABASE {old_name} RENAME TO {new_name};")
+            cur.execute(f'ALTER DATABASE "{old_name}" RENAME TO "{new_name}";')
             cur.close()
             conn.close()
-            messagebox.showinfo("Success", f"Database renamed from {old_name} to {new_name}")
+            messagebox.showinfo("Success", f'Database renamed from "{old_name}" to "{new_name}"')
             self.refresh_databases()
         except Exception as e:
             messagebox.showerror("Error", str(e))
@@ -149,7 +149,7 @@ class PostgreSQLManager:
                     "-Fc",
                     "-f", file_path
                 ], check=True, env=dict(os.environ, PGPASSWORD=self.password))
-                messagebox.showinfo("Success", f"Database {db_name} backed up to {file_path}")
+                messagebox.showinfo("Success", f'Database "{db_name}" backed up to {file_path}')
             except subprocess.CalledProcessError as e:
                 messagebox.showerror("Error", str(e))
 
@@ -187,7 +187,7 @@ class PostgreSQLManager:
                         "-v",
                         file_path
                     ], check=True, env=dict(os.environ, PGPASSWORD=self.password))
-                messagebox.showinfo("Success", f"Database restored from {file_path}")
+                messagebox.showinfo("Success", f'Database restored from {file_path}')
             except subprocess.CalledProcessError as e:
                 messagebox.showerror("Error", str(e))
 
@@ -198,7 +198,7 @@ class PostgreSQLManager:
             return
         
         # 確認ダイアログを表示
-        if messagebox.askyesno("Confirm Delete", f"Are you sure you want to delete the database '{db_name}'?"):
+        if messagebox.askyesno("Confirm Delete", f'Are you sure you want to delete the database "{db_name}"?'):
             try:
                 conn = psycopg2.connect(
                     host=self.host,
@@ -214,14 +214,14 @@ class PostgreSQLManager:
                 cur.execute(f"""
                     SELECT pg_terminate_backend(pid)
                     FROM pg_stat_activity
-                    WHERE datname = '{db_name}';
-                """)
+                    WHERE datname = %s;
+                """, (db_name,))
                 
                 # データベースを削除
-                cur.execute(f"DROP DATABASE {db_name};")
+                cur.execute(f'DROP DATABASE "{db_name}";')
                 cur.close()
                 conn.close()
-                messagebox.showinfo("Success", f"Database {db_name} deleted successfully")
+                messagebox.showinfo("Success", f'Database "{db_name}" deleted successfully')
                 self.refresh_databases()
             except Exception as e:
                 messagebox.showerror("Error", str(e))
