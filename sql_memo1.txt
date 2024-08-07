@@ -1,3 +1,22 @@
+・指定したレコードを削除
+DELETE FROM テーブル名 WHERE 条件;
+
+・指定したカラムに値をセット
+UPDATE テーブル名
+SET カラム1 = 値1, カラム2 = 値2, ...
+WHERE 条件;
+
+・特定の範囲の行を削除
+DELETE FROM テーブル名
+WHERE id IN (
+    SELECT id FROM (
+        SELECT id, ROW_NUMBER() OVER (ORDER BY id) AS row_num
+        FROM テーブル名
+    ) AS numbered_rows
+    WHERE row_num BETWEEN x AND y
+);
+
+
 PostgreSQLのテーブル一覧の取得方法
 https://illacloud.com/ja/blog/list-tables-in-postgresql/#dt%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E5%86%85%E3%81%AE%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA
 
@@ -316,6 +335,3 @@ https://www.create.xyz
 https://claude.ai/
 https://gemini.google.com
 
-
-https://prtimes.jp/main/html/rd/p/000000016.000054715.html
-https://en-ambi.com/itcontents/entry/2020/02/13/103000/
