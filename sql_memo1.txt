@@ -352,3 +352,8 @@ C:\Program Files\WinMerge\WinMergeU.exe -e -ub -dl %bname -dr %yname %base %mine
 
 ・マージツール
 C:\Program Files\WinMerge\WinMergeU.exe /e /ub /fr /wl /wm /dl %bname /dm %tname /dr %yname  %base %theirs %mine /o %merged /ar
+
+・マージツール設定方法
+https://www.perplexity.ai/search/tortoisesvntetortoisemergetena-BEFF6sneQ62UYzp5wXw.rw
+・マージ手順
+https://www.perplexity.ai/search/tortoisesvntearuhurantiwota-no-UbUgyi6eSaKdppGFHatGfg
