@@ -345,3 +345,10 @@ https://www.perplexity.ai/search/ji-di-kurasunihua-xiang-woshe-EqLpgKhpTF6q6ZaZB
 https://www.perplexity.ai/search/yi-xia-nosanhuruwotou-guo-form-xP6siyL_QySzUq27RQda_g
 ・Timer
 https://www.perplexity.ai/search/c-nowinformstehua-mian-nikonto-3uh_unKORkWPB9gQe32zGA
+
+
+・差分ビューア
+C:\Program Files\WinMerge\WinMergeU.exe -e -ub -dl %bname -dr %yname %base %mine
+
+・マージツール
+C:\Program Files\WinMerge\WinMergeU.exe /e /ub /fr /wl /wm /dl %bname /dm %tname /dr %yname  %base %theirs %mine /o %merged /ar
