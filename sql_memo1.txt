@@ -363,3 +363,9 @@ https://www.perplexity.ai/search/meinmonitanoihentohantorakaras-zU59KSVGT8OwvOhy
 
 delphi デフォルト引数、out引数
 https://www.perplexity.ai/search/delphi3noguan-shu-ding-yi-noyi-c6YwTOCoSiiYnC18f.QbEA
+
+
+var
+  XXXX: array[0..30] of Char;
+begin
+  StrPCopy(XXXX, edt●●.Text);
