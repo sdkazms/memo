@@ -369,3 +369,16 @@ var
   XXXX: array[0..30] of Char;
 begin
   StrPCopy(XXXX, edt●●.Text);
+
+var
+  dateTime2: TDateTime;
+begin
+  if TryStrToDateTime(edt●●.Text, dateTime2) then
+  begin
+    // 変換成功時の処理
+  end
+  else
+  begin
+    ShowMessage('無効な日付形式です。');
+    // エラー処理
+  end;
