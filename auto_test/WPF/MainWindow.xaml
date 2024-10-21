@@ -1,0 +1,16 @@
+﻿<Window x:Class="AutoTestWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Auto Test WPF" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Button Content="Run EXE" Click="RunExe_Click" Margin="5"/>
+            <Button Content="Simulate Touch" Click="SimulateTouch_Click" Margin="5"/>
+            <Button Content="Simulate Double Touch" Click="SimulateDoubleTouch_Click" Margin="5"/>
+            <Button Content="Show Mouse Position" Click="ShowMousePosition_Click" Margin="5"/>
+            <Button Content="Read XML" Click="ReadXML_Click" Margin="5"/>
+            <Button Content="Write XML" Click="WriteXML_Click" Margin="5"/>
+            <Button Content="Multi-Monitor Test" Click="MultiMonitorTest_Click" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
