@@ -1,4 +1,4 @@
-・pip installを実行していないPCでインストールせずに実行する方法はある？
+・pip installを実行していないPCでインストールせずに実行する方法
 pip install pyinstaller
 pyinstaller --onefile main.py
 https://www.perplexity.ai/search/pip-installwoshi-xing-siteinai-ljKm.sU1Rm68CYk_PDicOA
