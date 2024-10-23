@@ -3,3 +3,9 @@ pip install pyinstaller
 pyinstaller --onefile main.py
 https://www.perplexity.ai/search/pip-installwoshi-xing-siteinai-ljKm.sU1Rm68CYk_PDicOA
 
+python パッケージ作成方法
+https://www.perplexity.ai/search/pythonhuairuwohatukesitosi-bie-2eGn5qpmQ1eKM9ciJe7yTw
+
+python 命名規則
+クラス名はキャメルケース、それ以外はスネークケース
+https://www.perplexity.ai/search/pythontekuroharubian-shu-kuras-ssKMRo9BTSidhWJ7.bzmJw
