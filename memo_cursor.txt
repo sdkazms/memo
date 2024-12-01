@@ -5,3 +5,27 @@ https://www.perplexity.ai/search/cursortesosukotowotong-chang-n-1ELM7gjGSQOlxGRS
 
 @シンボル
 https://www.perplexity.ai/search/cursornotiyatutoha-woshi-tutet-y8Fh4AX.SZSFudGH6GikLw
+
+cursor完全ガイドの修正点
+https://github.com/kinopeee/cursor-perfect-guide
+
+Ctrl + Enter
+⇒変更を受け入れ
+
+Ctrl + Delete
+⇒変更を拒否
+
+Ctrl + L
+⇒現在のファイルのAIペインを新規作成
+
+行選択してCtrl + K
+⇒対象内のコードに編集、新規追加したりする
+
+「問題」タブ -> エラー表示部を右クリック -> 「Fix with AI」
+⇒AIアシスタントによるエラーの自動修正
+
+netstat -ano | findstr :<PORT>
+taskkill /PID <PID> /F
+
+netstat -ano | findstr :3000
+taskkill /PID 14112 /F
