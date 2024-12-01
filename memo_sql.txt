@@ -1,3 +1,8 @@
+https://www.ajofficesystem.net/
+
+shida-kazumasa@ajflat.co.jp
+
+
 ・指定したレコードを削除
 DELETE FROM テーブル名 WHERE 条件;
 
