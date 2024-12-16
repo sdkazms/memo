@@ -1,8 +1,10 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
+import sys
 import psycopg2
 import subprocess
 import os
+#print(sys.executable) 
 
 class PostgreSQLManager:
     def __init__(self, master):
@@ -13,7 +15,7 @@ class PostgreSQLManager:
         # データベース接続情報
         self.host = "localhost"
         self.user = "postgres"
-        self.password = "XXXXXXXXXXXXXXXXX"
+        self.password = "1412342k"
         self.port = "5432"
 
         # PostgreSQLのバイナリディレクトリをPATHに追加
@@ -60,6 +62,18 @@ class PostgreSQLManager:
         # SQLファイル実行機能
         self.run_sql_files_button = ttk.Button(self.master, text="Run SQL Files", command=self.run_sql_files)
         self.run_sql_files_button.grid(row=6, column=1, padx=5, pady=5)
+
+        # テーブルエクスポート機能
+        ttk.Label(self.master, text="Table name:").grid(row=7, column=0, padx=5, pady=5)
+        self.table_entry = ttk.Entry(self.master, width=30)
+        self.table_entry.grid(row=7, column=1, padx=5, pady=5)
+        self.export_button = ttk.Button(self.master, text="Export CSV", command=self.export_table_to_csv)
+        self.export_button.grid(row=7, column=2, padx=5, pady=5)
+
+        # 複数テーブルエクスポート機能
+        self.export_multiple_button = ttk.Button(self.master, text="複数テーブルをエクスポート", 
+                                               command=self.export_tables_from_file)
+        self.export_multiple_button.grid(row=8, column=1, padx=5, pady=5)
 
         self.refresh_databases()
 
@@ -253,7 +267,110 @@ class PostgreSQLManager:
             messagebox.showinfo("Success", f"Selected SQL files executed successfully")
         except subprocess.CalledProcessError as e:
             messagebox.showerror("Error", str(e))
-
+            
+    def export_table_to_csv(self):
+        table_name = self.table_entry.get()
+        db_name = self.db_combo.get()
+        
+        if not table_name:
+            messagebox.showerror("Error", "Please enter a table name.")
+            return
+        
+        if not db_name:
+            messagebox.showerror("Error", "Please select a database.")
+            return
+        
+        file_path = filedialog.asksaveasfilename(
+            defaultextension=".csv",
+            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")]
+        )
+        
+        if file_path:
+            try:
+                conn = psycopg2.connect(
+                    host=self.host,
+                    user=self.user,
+                    password=self.password,
+                    port=self.port,
+                    database=db_name
+                )
+                cur = conn.cursor()
+                
+                # COPYコマンドを実行
+                cur.execute(f"COPY {table_name} TO '{file_path}' DELIMITER ',' CSV ENCODING 'SJIS' HEADER;")
+                
+                conn.commit()
+                cur.close()
+                conn.close()
+                
+                messagebox.showinfo("Success", f"Table '{table_name}' exported to {file_path}")
+                
+            except Exception as e:
+                messagebox.showerror("Error", str(e))
+                
+    def export_tables_from_file(self):
+        db_name = self.db_combo.get()
+        
+        if not db_name:
+            messagebox.showerror("エラー", "データベースを選択してください。")
+            return
+        
+        # テーブルリストファイルの選択
+        table_list_path = filedialog.askopenfilename(
+            title="テーブルリストファイルを選択",
+            filetypes=[("テキストファイル", "*.txt"), ("すべてのファイル", "*.*")]
+        )
+        
+        if not table_list_path:
+            return
+        
+        # 出力先ディレクトリの選択
+        output_dir = filedialog.askdirectory(title="CSVファイルの出力先を選択")
+        
+        if not output_dir:
+            return
+        
+        try:
+            # テーブルリストの読み込み
+            with open(table_list_path, 'r') as f:
+                tables = [line.strip() for line in f if line.strip()]
+                
+            conn = psycopg2.connect(
+                host=self.host,
+                user=self.user,
+                password=self.password,
+                port=self.port,
+                database=db_name
+            )
+            cur = conn.cursor()
+            
+            success_tables = []
+            failed_tables = []
+            
+            for table in tables:
+                try:
+                    output_path = os.path.join(output_dir, f"{table}.csv")
+                    cur.execute(f"COPY {table} TO '{output_path}' DELIMITER ',' CSV ENCODING 'SJIS' HEADER;")
+                    success_tables.append(table)
+                except Exception as e:
+                    failed_tables.append(f"{table}: {str(e)}")
+                    
+            conn.commit()
+            cur.close()
+            conn.close()
+            
+            # 結果メッセージの作成
+            result_message = f"エクスポート完了\n\n"
+            result_message += f"成功: {len(success_tables)}件\n"
+            if failed_tables:
+                result_message += f"\n失敗: {len(failed_tables)}件\n"
+                result_message += "\n".join(failed_tables)
+                
+            messagebox.showinfo("実行結果", result_message)
+            
+        except Exception as e:
+            messagebox.showerror("エラー", str(e))
+                
 root = tk.Tk()
 app = PostgreSQLManager(root)
 root.mainloop()
