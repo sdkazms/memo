@@ -4,6 +4,7 @@ import sys
 import psycopg2
 import subprocess
 import os
+import pandas as pd
 #print(sys.executable) 
 
 class PostgreSQLManager:
@@ -74,6 +75,11 @@ class PostgreSQLManager:
         self.export_multiple_button = ttk.Button(self.master, text="複数テーブルをエクスポート", 
                                                command=self.export_tables_from_file)
         self.export_multiple_button.grid(row=8, column=1, padx=5, pady=5)
+
+        # 複数テーブルをExcelにエクスポート
+        self.export_to_excel_button = ttk.Button(self.master, text="複数テーブルをExcelにエクスポート", 
+                                               command=self.export_tables_to_excel)
+        self.export_to_excel_button.grid(row=9, column=1, padx=5, pady=5)
 
         self.refresh_databases()
 
@@ -368,6 +374,73 @@ class PostgreSQLManager:
                 
             messagebox.showinfo("実行結果", result_message)
             
+        except Exception as e:
+            messagebox.showerror("エラー", str(e))
+                
+    def export_tables_to_excel(self):
+        db_name = self.db_combo.get()
+        
+        if not db_name:
+            messagebox.showerror("エラー", "データベースを選択してください。")
+            return
+        
+        # テーブルリストファイルの選択
+        table_list_path = filedialog.askopenfilename(
+            title="テーブルリストファイルを選択",
+            filetypes=[("テキストファイル", "*.txt"), ("すべてのファイル", "*.*")]
+        )
+        
+        if not table_list_path:
+            return
+        
+        # Excelファイルの保存先を選択
+        excel_path = filedialog.asksaveasfilename(
+            defaultextension=".xlsx",
+            filetypes=[("Excelファイル", "*.xlsx"), ("すべてのファイル", "*.*")]
+        )
+        
+        if not excel_path:
+            return
+        
+        try:
+            # テーブルリストの読み込み
+            with open(table_list_path, 'r') as f:
+                tables = [line.strip() for line in f if line.strip()]
+            
+            # ExcelWriterオブジェクトの作成
+            with pd.ExcelWriter(excel_path, engine='openpyxl') as writer:
+                conn = psycopg2.connect(
+                    host=self.host,
+                    user=self.user,
+                    password=self.password,
+                    port=self.port,
+                    database=db_name
+                )
+                
+                success_tables = []
+                failed_tables = []
+                
+                for table in tables:
+                    try:
+                        # SQLクエリを実行してデータフレームに変換
+                        df = pd.read_sql(f"SELECT * FROM {table}", conn)
+                        # データフレームをExcelシートとして出力
+                        df.to_excel(writer, sheet_name=table, index=False)
+                        success_tables.append(table)
+                    except Exception as e:
+                        failed_tables.append(f"{table}: {str(e)}")
+                
+                conn.close()
+                
+                # 結果メッセージの作成
+                result_message = f"エクスポート完了\n\n"
+                result_message += f"成功: {len(success_tables)}件\n"
+                if failed_tables:
+                    result_message += f"\n失敗: {len(failed_tables)}件\n"
+                    result_message += "\n".join(failed_tables)
+                
+                messagebox.showinfo("実行結果", result_message)
+                
         except Exception as e:
             messagebox.showerror("エラー", str(e))
                 
