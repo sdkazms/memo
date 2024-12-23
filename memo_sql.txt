@@ -389,3 +389,5 @@ begin
     ShowMessage('無効な日付形式です。');
     // エラー処理
   end;
+
+https://www.perplexity.ai/search/echo-off-chcp-932-nul-guan-li-F44eLbHFR7WnF5i5f.v97Q
