@@ -1,0 +1,85 @@
+﻿[2025-10-08 00:00:52.235] [INFO] MainForm コンストラクタが呼ばれました
+[2025-10-08 00:00:52.265] [INFO] MainForm_Load が呼ばれました
+[2025-10-08 00:00:52.338] [INFO] MainForm_Shown が呼ばれました
+[2025-10-08 00:00:54.283] [INFO] FormA への遷移を開始します
+[2025-10-08 00:00:54.285] [INFO] FormA コンストラクタが呼ばれました
+[2025-10-08 00:00:54.287] [INFO] FormA_Load が呼ばれました
+[2025-10-08 00:00:54.300] [INFO] MainForm_FormClosed が呼ばれました
+[2025-10-08 00:00:54.309] [INFO] FormA_Shown が呼ばれました
+[2025-10-08 00:00:54.310] [INFO] FormB への遷移を開始します
+[2025-10-08 00:00:54.312] [INFO] FormB コンストラクタが呼ばれました
+[2025-10-08 00:00:54.318] [INFO] FormB_Load が呼ばれました
+[2025-10-08 00:00:54.326] [INFO] FormA_FormClosed が呼ばれました
+[2025-10-08 00:00:54.332] [INFO] FormB_Shown が呼ばれました
+[2025-10-08 00:00:59.349] [INFO] FormC への遷移を開始します
+[2025-10-08 00:00:59.350] [INFO] FormC コンストラクタが呼ばれました
+[2025-10-08 00:00:59.354] [INFO] FormC_Load が呼ばれました
+[2025-10-08 00:00:59.361] [INFO] FormB_FormClosed が呼ばれました
+[2025-10-08 00:00:59.364] [INFO] FormC OnReceivedEvent受信: RaiseMessage通知 #1
+[2025-10-08 00:00:59.377] [INFO] FormC OnReceivedEvent受信: RaiseMessage通知 #2
+[2025-10-08 00:00:59.387] [INFO] FormC_Shown が呼ばれました
+[2025-10-08 00:01:58.733] [INFO] MainForm コンストラクタが呼ばれました
+[2025-10-08 00:01:58.764] [INFO] MainForm_Load が呼ばれました
+[2025-10-08 00:01:58.844] [INFO] MainForm_Shown が呼ばれました
+[2025-10-08 00:02:00.824] [INFO] MainForm OnReceivedEvent受信: RaiseMessage通知 #3
+[2025-10-08 00:02:03.832] [INFO] MainForm OnReceivedEvent受信: RaiseMessage通知 #3
+[2025-10-08 00:02:25.709] [INFO] MainForm コンストラクタが呼ばれました
+[2025-10-08 00:02:25.745] [INFO] MainForm_Load が呼ばれました
+[2025-10-08 00:02:25.850] [INFO] MainForm_Shown が呼ばれました
+[2025-10-08 00:02:27.818] [INFO] FormA への遷移を開始します
+[2025-10-08 00:02:27.819] [INFO] FormA コンストラクタが呼ばれました
+[2025-10-08 00:02:27.823] [INFO] FormA_Load が呼ばれました
+[2025-10-08 00:02:27.838] [INFO] MainForm_FormClosed が呼ばれました
+[2025-10-08 00:02:27.851] [INFO] FormA_Shown が呼ばれました
+[2025-10-08 00:02:27.851] [INFO] FormB への遷移を開始します
+[2025-10-08 00:02:27.852] [INFO] FormB コンストラクタが呼ばれました
+[2025-10-08 00:02:27.857] [INFO] FormB_Load が呼ばれました
+[2025-10-08 00:02:27.867] [INFO] FormA_FormClosed が呼ばれました
+[2025-10-08 00:02:27.871] [INFO] FormB_Shown が呼ばれました
+[2025-10-08 00:02:32.879] [INFO] FormC への遷移を開始します
+[2025-10-08 00:02:32.880] [INFO] FormC コンストラクタが呼ばれました
+[2025-10-08 00:02:32.883] [INFO] FormC_Load が呼ばれました
+[2025-10-08 00:02:32.894] [INFO] FormB_FormClosed が呼ばれました
+[2025-10-08 00:02:32.899] [INFO] FormC OnReceivedEvent受信: RaiseMessage通知 #2
+[2025-10-08 00:02:32.916] [INFO] FormC OnReceivedEvent受信: RaiseMessage通知 #2
+[2025-10-08 00:02:32.921] [INFO] FormC_Shown が呼ばれました
+[2025-10-08 00:03:28.568] [INFO] MainForm コンストラクタが呼ばれました
+[2025-10-08 00:03:28.602] [INFO] MainForm_Load が呼ばれました
+[2025-10-08 00:03:28.665] [INFO] MainForm_Shown が呼ばれました
+[2025-10-08 00:03:30.272] [INFO] FormA への遷移を開始します
+[2025-10-08 00:03:30.273] [INFO] FormA コンストラクタが呼ばれました
+[2025-10-08 00:03:30.277] [INFO] FormA_Load が呼ばれました
+[2025-10-08 00:03:30.288] [INFO] MainForm_FormClosed が呼ばれました
+[2025-10-08 00:03:30.298] [INFO] FormA_Shown が呼ばれました
+[2025-10-08 00:03:30.298] [INFO] FormB への遷移を開始します
+[2025-10-08 00:03:30.299] [INFO] FormB コンストラクタが呼ばれました
+[2025-10-08 00:03:30.304] [INFO] FormB_Load が呼ばれました
+[2025-10-08 00:03:30.314] [INFO] FormA_FormClosed が呼ばれました
+[2025-10-08 00:03:30.318] [INFO] FormB_Shown が呼ばれました
+[2025-10-08 00:03:35.334] [INFO] FormC への遷移を開始します
+[2025-10-08 00:03:35.335] [INFO] FormC コンストラクタが呼ばれました
+[2025-10-08 00:03:35.339] [INFO] FormC_Load が呼ばれました
+[2025-10-08 00:03:35.345] [INFO] FormB_FormClosed が呼ばれました
+[2025-10-08 00:03:35.348] [INFO] FormC OnReceivedEvent受信: RaiseMessage通知 #2
+[2025-10-08 00:03:35.360] [INFO] FormC OnReceivedEvent受信: RaiseMessage通知 #2
+[2025-10-08 00:03:35.369] [INFO] FormC_Shown が呼ばれました
+[2025-10-08 00:04:28.517] [INFO] MainForm コンストラクタが呼ばれました
+[2025-10-08 00:04:28.555] [INFO] MainForm_Load が呼ばれました
+[2025-10-08 00:04:28.656] [INFO] MainForm_Shown が呼ばれました
+[2025-10-08 00:04:30.363] [INFO] FormA への遷移を開始します
+[2025-10-08 00:04:30.364] [INFO] FormA コンストラクタが呼ばれました
+[2025-10-08 00:04:30.367] [INFO] FormA_Load が呼ばれました
+[2025-10-08 00:04:30.379] [INFO] MainForm_FormClosed が呼ばれました
+[2025-10-08 00:04:30.391] [INFO] FormA_Shown が呼ばれました
+[2025-10-08 00:04:35.401] [INFO] FormB への遷移を開始します
+[2025-10-08 00:04:35.402] [INFO] FormB コンストラクタが呼ばれました
+[2025-10-08 00:04:35.406] [INFO] FormB_Load が呼ばれました
+[2025-10-08 00:04:35.412] [INFO] FormA_FormClosed が呼ばれました
+[2025-10-08 00:04:35.424] [INFO] FormB OnReceivedEvent受信: RaiseMessage通知 #2
+[2025-10-08 00:04:35.441] [INFO] FormB OnReceivedEvent受信: RaiseMessage通知 #2
+[2025-10-08 00:04:35.449] [INFO] FormB_Shown が呼ばれました
+[2025-10-08 00:04:35.449] [INFO] FormC への遷移を開始します
+[2025-10-08 00:04:35.451] [INFO] FormC コンストラクタが呼ばれました
+[2025-10-08 00:04:35.460] [INFO] FormC_Load が呼ばれました
+[2025-10-08 00:04:35.471] [INFO] FormB_FormClosed が呼ばれました
+[2025-10-08 00:04:35.475] [INFO] FormC_Shown が呼ばれました

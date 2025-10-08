@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsTestChangeFormApp", "WindowsFormsTestChangeFormApp.csproj", "{B5E67E7B-6FF7-496D-9116-228213C3ADD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5E67E7B-6FF7-496D-9116-228213C3ADD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E67E7B-6FF7-496D-9116-228213C3ADD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E67E7B-6FF7-496D-9116-228213C3ADD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E67E7B-6FF7-496D-9116-228213C3ADD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2F8B4C4-3FCB-4B86-AED5-72DFFA0B83D3}
+	EndGlobalSection
+EndGlobal
