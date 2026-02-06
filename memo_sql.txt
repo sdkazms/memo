@@ -400,3 +400,10 @@ https://www.perplexity.ai/search/1-qian-ri-karadang-ri-henoreto-x42U7eUWQvGajs4p
 
 ・DataGridViewのフィルタとソート
 https://effect.hatenablog.com/entry/2018/10/04/000911
+
+
+・com0comインストール手順
+https://qiita.com/yaju/items/e5818c99857883a59033
+
+⇒ Windows Update > 詳細オプション > オプションの更新プログラム > ドライバの更新プログラム
+ 　⇒ Vyacheslav Frolov - CNCPorts をダウンロード＆インストール
