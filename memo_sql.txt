@@ -409,4 +409,5 @@ https://qiita.com/yaju/items/e5818c99857883a59033
  　⇒ Vyacheslav Frolov - CNCPorts をダウンロード＆インストール
 
 ・公式のインストール場所
-https://sourceforge.net/projects/com0com/files/latest/download
+https://sourceforge.net/projects/com0com/files/com0com/
+
