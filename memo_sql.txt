@@ -407,3 +407,6 @@ https://qiita.com/yaju/items/e5818c99857883a59033
 
 ⇒ Windows Update > 詳細オプション > オプションの更新プログラム > ドライバの更新プログラム
  　⇒ Vyacheslav Frolov - CNCPorts をダウンロード＆インストール
+
+・公式のインストール場所
+https://sourceforge.net/projects/com0com/files/latest/download
