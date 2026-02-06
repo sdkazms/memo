@@ -411,3 +411,5 @@ https://qiita.com/yaju/items/e5818c99857883a59033
 ・公式のインストール場所
 https://sourceforge.net/projects/com0com/files/com0com/
 
+本ドライバは Windows Update 経由で提供されたMicrosoft署名済みデバイスドライバであり、OS標準の配布機構に基づき導入
+
