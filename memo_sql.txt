@@ -419,4 +419,26 @@ https://sourceforge.net/projects/com0com/files/com0com/
 ⇒Microsoftが署名を付け直して配布
 　⇒PCメーカー配信（Dell、HPなどのOEM経由）
 
+・pgdata
+pg_ctl -D "C:\psql\data" -l "C:\psql\postgres.log" start
+pg_ctl -D "C:\psql\data" start
 
+pg_dump -h 127.0.0.1 -p 5432 -U postgres -F t -f "C:\psql\backup\mydb.tar" mydb
+pg_dump -h 127.0.0.1 -p 5432 -U postgres -F c -f "C:\psql\backup\mydb.backup" mydb
+
+-h 127.0.0.1             接続先。自分のPC
+-p 5432                  PostgreSQLのポート
+-U postgres              接続ユーザー
+-F c                     カスタム形式のバックアップ
+-f "C:\...\mydb.backup"  出力先ファイル
+mydb                     バックアップ対象DB名
+
+
+C:\PostgreSQL\16\bin\pg_ctl -D "C:\psql\data" status
+
+C:\PostgreSQL\16\bin\pg_ctl -D "C:\psql\data" -l "C:\psql\postgres.log" start
+
+C:\PostgreSQL\16\bin\pg_dump -h 127.0.0.1 -p 5432 -U postgres -F t -f "C:\psql\backup\mydb.tar" testdb
+C:\PostgreSQL\16\bin\pg_dump -h 127.0.0.1 -p 5432 -U postgres -F c -f "C:\psql\backup\testdb.backup" testdb
+
+C:\PostgreSQL\16\bin\pg_restore.exe -h 127.0.0.1 -p 5432 -U postgres -d testdb -v "C:\psql\backup\testdb.backup"
